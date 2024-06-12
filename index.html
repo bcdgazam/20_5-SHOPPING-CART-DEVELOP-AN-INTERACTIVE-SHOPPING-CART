@@ -9,18 +9,18 @@
 </head>
 <body>
     <div class="flex justify-center items-center h-screen">
-        <div class="bg-gray-100 px-10 py-10 w-6/12">
-            <div class="p-5 bg-white justify-between flex rounded">
-                <div class="justify-between flex items-center max-w-screen-2xl">
-                    <img class="w-32" src="img/product-1.png" alt="">
-                    <h1 class="text-2xl">iPhone 11 128GB Black</h1>
+        <div class="bg-gray-100 px-10 py-10 w-7/12">
+            <div class="p-5 bg-white justify-between flex rounded shadow mb-6">
+                <div class="flex items-center text-2xl">
+                    <img class="w-32 mr-10" src="img/product-1.png" alt="">
+                    <h1>iPhone 11 128GB Black</h1>
                 </div>
                 <div class="flex items-center gap-4">
-                    <p><i class="fa-solid fa-minus sm:text-1xl md:text-2xl"></i></p>
-                    <p class="text-2xl">1</p>
-                    <p><i class="fa-solid fa-plus sm:text-1xl md:text-2xl"></i></p>
+                    <button type="button"><i id="removeProduct" class="fa-solid fa-minus sm:text-1xl md:text-2xl"></i></button>
+                    <p id="productNumber" class="text-2xl border px-4 py-2 rounded">1</p>
+                    <button type="button"><i id="addProduct" class="fa-solid fa-plus sm:text-1xl md:text-2xl"></i></button>
                     <div class="flex items-center justify-center px-8">
-                        <p class="text-2xl">$1219</p>
+                        <p class="text-2xl font-semibold">$1219</p>
                     </div>
                     <div class="flex items-center justify-center px-6">
                         <i class="fa-solid fa-x text-red-600 sm:text-2xl md:text-4xl"></i>
@@ -28,7 +28,51 @@
                 </div>
                 
             </div>
+            <div class="p-5 bg-white justify-between flex rounded shadow mt-6">
+                <div class="flex items-center text-2xl">
+                    <img class="w-32 mr-10" src="img/product-2.png" alt="">
+                    <h1>iPhone 11 Silicone Case - Black</h1>
+                </div>
+                <div class="flex items-center gap-4">
+                    <p><i class="fa-solid fa-minus sm:text-1xl md:text-2xl"></i></p>
+                    <p class="text-2xl border px-4 py-2 rounded">1</p>
+                    <p><i class="fa-solid fa-plus sm:text-1xl md:text-2xl"></i></p>
+                    <div class="flex items-center justify-center px-8">
+                        <p class="text-2xl font-semibold">$59</p>
+                    </div>
+                    <div class="flex items-center justify-center px-6">
+                        <i class="fa-solid fa-x text-red-600 sm:text-2xl md:text-4xl"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="p-5 bg-white justify-between flex rounded shadow mt-6">
+                <div class="text-2xl">
+                    <p>Subtotal:</p>
+                    <p>Tax:</p>
+                    <p>Total:</p>
+                </div>
+                <div class="text-2xl text-right">
+                    <p>$1,278</p>
+                    <p>$0</p>
+                    <p>$1,278</p>
+                </div>
+            </div>
+            <div class="mt-10 flex justify-end">
+                <button class="border px-3 py-2 rounded bg-indigo-700 text-white" type="submit">Check Out</button>
+            </div>
         </div>
     </div>
+    <script>
+        document.getElementById('addProduct').addEventListener('click', function(){
+            let productItem = parseFloat(document.getElementById('productNumber').innerText);
+            productItem ++;
+            document.getElementById('productNumber').innerText = productItem;
+        })
+        document.getElementById('removeProduct').addEventListener('click', function(){
+            let productRemove = document.getElementById('productNumber').innerText;
+            productRemove --;
+            document.getElementById('productNumber').innerText = productRemove;
+        })
+    </script>
 </body>
 </html>
